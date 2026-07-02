@@ -88,6 +88,7 @@
   .hero-dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 30px 30px; }
   .hero-glow { position: absolute; top: 0; left: 0; width: 70%; height: 100%; background: radial-gradient(ellipse at 20% 60%, rgba(201,168,118,.09) 0%, transparent 55%); pointer-events: none; }
   .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 90px 64px 80px 0; }
+  .hero-pad-desktop { padding-left: max(28px, calc((100vw - 1140px)/2 + 28px)); }
   .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5.5vw,5rem); font-weight: 700; line-height: 1.06; color: var(--white); margin-bottom: 24px; }
   .hero-h1 em { font-style: italic; color: var(--gold); }
   .hero-sub { font-size: .95rem; color: rgba(255,255,255,.62); max-width: 400px; line-height: 1.78; margin-bottom: 40px; }
@@ -207,11 +208,19 @@
     .servicos-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-photo { min-height: 60vh; order: -1; margin-top: 2cm; }
+    #hero { grid-template-columns: 1fr; overflow: visible; }
+    .hero-photo { min-height: 56vh; order: -1; margin-top: 2cm; }
     .hero-photo img { object-position: center 15%; }
     .hero-photo::before { background: linear-gradient(to bottom, rgba(18,17,16,.72) 0%, transparent 35%), linear-gradient(to top, rgba(18,17,16,1) 0%, rgba(18,17,16,0) 55%); }
-    .hero-content { padding: 24px 0 60px; }
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      background: var(--dark);
+      margin: -72px 20px -56px;
+      padding: 36px 24px 48px !important;
+      border-radius: var(--r-lg);
+      box-shadow: 0 30px 70px rgba(0,0,0,.45);
+    }
     .sobre-grid { grid-template-columns: 1fr; gap: 52px; }
     .sobre-img-wrap { max-width: 380px; margin: 0 auto; }
     .depo-grid { grid-template-columns: 1fr; gap: 20px; max-width: 460px; margin: 0 auto; }
@@ -276,7 +285,7 @@
   <div class="hero-dots" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
 
-  <div class="hero-content container" style="grid-column:1;padding-left:max(28px,calc((100vw - 1140px)/2 + 28px))">
+  <div class="hero-content container hero-pad-desktop" style="grid-column:1">
     <h1 id="h1" class="hero-h1 fade-up">
       Odontologia com técnica,<br>cuidado e <em>atenção real.</em>
     </h1>
